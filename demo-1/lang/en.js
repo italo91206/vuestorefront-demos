@@ -136,6 +136,7 @@ export default {
   'Who we are': 'Who we are',
   'Women fashion': 'Women fashion',
   'You currently have no orders': 'You currently have no orders',
+  'You can unsubscribe at any time': 'You can unsubscribe at any time',
   'You haven’t searched for items yet': 'You haven’t searched for items yet.',
   'Your bag is empty': 'Your bag is empty',
   'Your current email address is': 'Your current email address is',
@@ -144,5 +145,8 @@ export default {
   'Sorry, we didnt find what youre looking for': 'Sorry, we didn\'t find what you\'re looking for.',
   'Enter your email to receive instructions on how to reset your password': 'Enter your email to receive instructions on how to reset your password',
   'Enter your email to receive instructions on how to reset your password': 'Enter your email to receive instructions on how to reset your password',
-
+  'Compare Products': 'Compare Products',
+  'Subscribe to newsletter': 'Subscribe to newsletter',
+  'Subscribe': 'Subscribe',
+  'See all': 'See all',
 };
