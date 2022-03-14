@@ -8,15 +8,21 @@
     </LazyHydrate>
 
     <div id="layout">
-      <nuxt :key="$route.fullPath"/>
+      <nuxt :key="$route.fullPath" />
 
       <LazyHydrate when-visible>
         <BottomNavigation />
       </LazyHydrate>
+
       <CartSidebar />
+
       <WishlistSidebar />
+
       <LoginModal />
+
       <Notification />
+
+      <CompareModal />
     </div>
     <LazyHydrate when-visible>
       <AppFooter />
@@ -32,6 +38,7 @@ import TopBar from '~/components/TopBar.vue';
 import CartSidebar from '~/components/CartSidebar.vue';
 import WishlistSidebar from '~/components/WishlistSidebar.vue';
 import LoginModal from '~/components/LoginModal.vue';
+import CompareModal from '~/components/CompareModal.vue';
 import LazyHydrate from 'vue-lazy-hydration';
 import Notification from '~/components/Notification';
 
@@ -47,13 +54,14 @@ export default {
     CartSidebar,
     WishlistSidebar,
     LoginModal,
-    Notification
-  }
+    Notification,
+    CompareModal
+  },
 };
 </script>
 
 <style lang="scss">
-@import "~@storefront-ui/vue/styles";
+@import '~@storefront-ui/vue/styles';
 
 #layout {
   box-sizing: border-box;

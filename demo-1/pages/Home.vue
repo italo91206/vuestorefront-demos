@@ -66,6 +66,7 @@
         >
           <SfProductCard
             :title="product.title"
+            :product_id="product.product_id"
             :image="product.image"
             :imageWidth="216"
             :imageHeight="288"
@@ -79,6 +80,10 @@
             :link="localePath({ name: 'home' })"
             class="carousel__item__product"
             @click:wishlist="toggleWishlist(i)"
+          />
+
+          <CompareButton
+            :product="product"
           />
         </SfCarouselItem>
       </SfCarousel>
@@ -130,6 +135,7 @@ import {
 import { ref, useContext } from '@nuxtjs/composition-api';
 import InstagramFeed from '~/components/InstagramFeed.vue';
 import NewsletterModal from '~/components/NewsletterModal.vue';
+import CompareButton from '~/components/CompareButton.vue';
 import LazyHydrate from 'vue-lazy-hydration';
 import { useUiState } from '../composables';
 import { useNewsLetter } from '@vue-storefront/odoo';
@@ -152,7 +158,8 @@ export default {
     SfArrow,
     SfButton,
     NewsletterModal,
-    LazyHydrate
+    LazyHydrate,
+    CompareButton
   },
   setup() {
     const { $config } = useContext();
@@ -162,6 +169,7 @@ export default {
 
     const products = ref([
       {
+        product_id: 1,
         title: 'Cream Beach Bag',
         image: addBasePath('/homepage/productA.webp'),
         price: { regular: '50.00 $' },
@@ -169,6 +177,7 @@ export default {
         isInWishlist: true
       },
       {
+        product_id: 2,
         title: 'Cream Beach Bag 2',
         image: addBasePath('/homepage/productB.webp'),
         price: { regular: '50.00 $' },
@@ -176,6 +185,7 @@ export default {
         isInWishlist: false
       },
       {
+        product_id: 3,
         title: 'Cream Beach Bag 3',
         image: addBasePath('homepage/productC.webp'),
         price: { regular: '50.00 $' },
@@ -183,6 +193,7 @@ export default {
         isInWishlist: false
       },
       {
+        product_id: 4,
         title: 'Cream Beach Bag RR',
         image: addBasePath('/homepage/productA.webp'),
         price: { regular: '50.00 $' },
@@ -190,6 +201,7 @@ export default {
         isInWishlist: false
       },
       {
+        product_id: 5,
         title: 'Cream Beach Bag',
         image: addBasePath('/homepage/productB.webp'),
         price: { regular: '50.00 $' },
@@ -197,6 +209,7 @@ export default {
         isInWishlist: false
       },
       {
+        product_id: 6,
         title: 'Cream Beach Bag',
         image: addBasePath('/homepage/productC.webp'),
         price: { regular: '50.00 $' },
@@ -204,6 +217,7 @@ export default {
         isInWishlist: false
       },
       {
+        product_id: 7,
         title: 'Cream Beach Bag',
         image: addBasePath('/homepage/productA.webp'),
         price: { regular: '50.00 $' },
@@ -211,6 +225,7 @@ export default {
         isInWishlist: false
       },
       {
+        product_id: 8,
         title: 'Cream Beach Bag',
         image: addBasePath('/homepage/productB.webp'),
         price: { regular: '50.00 $' },
@@ -321,6 +336,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.carousel__item:hover .sf-product-card {
+  --product-card-image-opacity: 1;
+  --product-card-image-even-opacity: 1;
+  --product-card-wishlist-icon-opacity: 1;
+  --product-card-add-button-opacity: 1;
+  --product-card-z-index: 1;
+  --product-card-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
+}
+
+.carousel__item{
+  position: relative;
+}
+
 #home {
   box-sizing: border-box;
   padding: 0 var(--spacer-sm);
