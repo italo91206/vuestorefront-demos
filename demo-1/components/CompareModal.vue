@@ -5,7 +5,7 @@
         class="sf-call-to-action__button"
         data-testid="cta-button"
         @click="toggleCompareModal"
-        :class="{ active: getCompareQuantity > 0 }"
+        :class="{ active: getCompareQuantity > 0 || isCompareModalOpen }"
       >
         <SfImage
           :src="addBasePath('/icons/compare.svg')"
@@ -22,11 +22,11 @@
       </SfButton>
     </section>
 
-    <section class="compare-modal--products">
-      <section
-        class="compare-modal--items"
-        :class="{ active: isCompareModalOpen }"
-      >
+    <section
+      class="compare-modal--products"
+      :class="{ active: isCompareModalOpen }"
+    >
+      <section class="compare-modal--items">
         <div
           class="compare-modal--item"
           v-for="(product, product_id) in products"
@@ -57,7 +57,7 @@
 
       <section class="compare-modal--options">
         <button class="color-primary sf-button">Compare</button>
-        <button class="outlined sf-button">Done</button>
+        <button class="outlined sf-button" @click="toggleCompareModal">Done</button>
       </section>
     </section>
   </div>
@@ -82,8 +82,11 @@ export default {
   },
   setup() {
     const { isCompareModalOpen, toggleCompareModal } = useUiState();
-    const { getCompareQuantity, getCompareProducts, removeProductFromCompare } =
-      useCompare();
+    const {
+      getCompareQuantity,
+      getCompareProducts,
+      removeProductFromCompare
+    } = useCompare();
     const products = getCompareProducts;
 
     return {
@@ -100,6 +103,18 @@ export default {
 </script>
 
 <style scoped>
+.compare-modal--button button{
+  opacity: 0;
+  z-index: -1;
+  transition: opacity .01s ease-in-out;
+}
+
+.compare-modal--button button.active{
+  z-index: 1;
+  opacity: 1;
+  transition: opacity .01s ease-in-out;
+}
+
 .compare-modal--products {
   width: 1240px;
   height: 136px;
@@ -107,11 +122,22 @@ export default {
   border: 1px solid #e0e0e1;
   box-sizing: border-box;
   background: #ffffff;
+  position: fixed;
+  bottom: 0px;
+  z-index: -1;
+  opacity: 0;
+  display: flex;
+  transition: bottom .01s ease-in-out, opacity .01s ease-in-out;
 }
 
-.compare-modal--products {
+.compare-modal--products.active {
+  bottom: 48px;
+  opacity: 1;
+  z-index: 1;
+  transition: bottom .125s ease-in-out, opacity .125s ease-in-out;
   display: flex;
 }
+
 
 .compare-modal--options button {
   width: 100%;
@@ -182,8 +208,8 @@ button.outlined {
 .compare-modal--button {
   position: fixed;
   bottom: 0;
-  transform: translateX(50%);
   z-index: 1;
+  left: calc(50% - 247px / 2);
 }
 .compare-modal--quantity {
   background: #e81e2b;
