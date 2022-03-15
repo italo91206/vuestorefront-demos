@@ -56,7 +56,7 @@
       </section>
 
       <section class="compare-modal--options">
-        <button class="color-primary sf-button">Compare</button>
+        <button class="color-primary sf-button" :clas="{'disabled' : getCompareQuantity == 0}" :link="`/compare-product-details`">Compare</button>
         <button class="outlined sf-button" @click="toggleCompareModal">Done</button>
       </section>
     </section>
@@ -103,6 +103,11 @@ export default {
 </script>
 
 <style scoped>
+.compare-modal--options button.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .compare-modal--button button{
   opacity: 0;
   z-index: -1;
