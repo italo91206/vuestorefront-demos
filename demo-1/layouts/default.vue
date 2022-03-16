@@ -22,7 +22,7 @@
 
       <Notification />
 
-      <CompareModal />
+      <CompareModal v-if="$route.path != '/compare-products-details'"/>
     </div>
     <LazyHydrate when-visible>
       <AppFooter />
