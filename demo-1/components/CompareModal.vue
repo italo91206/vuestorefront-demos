@@ -7,17 +7,21 @@
         @click="toggleCompareModal"
         :class="{ active: getCompareQuantity > 0 || isCompareModalOpen }"
       >
-        <SfImage
-          :src="addBasePath('/icons/compare.svg')"
-          :width="24"
-          :height="24"
-          alt="Compare"
-        />
+        <span>
+          <SfImage
+            :src="addBasePath('/icons/compare.svg')"
+            :width="24"
+            :height="24"
+            alt="Compare"
+          />
 
-        {{ $t('Compare Products') }}
+          <span style="margin-left: 7px">
+            {{ $t('Compare Products') }}
+          </span>
 
-        <span class="compare-modal--quantity">
-          {{ getCompareQuantity }}
+          <span class="compare-modal--quantity">
+            {{ getCompareQuantity }}
+          </span>
         </span>
       </SfButton>
     </section>
@@ -56,15 +60,16 @@
       </section>
 
       <section class="compare-modal--options">
-        <NuxtLink to="/compare-products-details"
-          :class="{'disabled' : getCompareQuantity < 2}"
+        <NuxtLink
+          to="/compare-products-details"
+          :class="{ disabled: getCompareQuantity < 2 }"
         >
-          <button class="color-primary sf-button">
-            Compare
-          </button>
-        </NuxtLink >
+          <button class="color-primary sf-button">Compare</button>
+        </NuxtLink>
 
-        <button class="outlined sf-button" @click="toggleCompareModal">Done</button>
+        <button class="outlined sf-button" @click="toggleCompareModal">
+          Done
+        </button>
       </section>
     </section>
   </div>
@@ -89,11 +94,8 @@ export default {
   },
   setup() {
     const { isCompareModalOpen, toggleCompareModal } = useUiState();
-    const {
-      getCompareQuantity,
-      getCompareProducts,
-      removeProductFromCompare
-    } = useCompare();
+    const { getCompareQuantity, getCompareProducts, removeProductFromCompare } =
+      useCompare();
     const products = getCompareProducts;
 
     return {
@@ -115,16 +117,16 @@ export default {
   opacity: 0.3;
 }
 
-.compare-modal--button button{
+.compare-modal--button button {
   opacity: 0;
   z-index: -1;
-  transition: opacity .01s ease-in-out;
+  transition: opacity 0.01s ease-in-out;
 }
 
-.compare-modal--button button.active{
+.compare-modal--button button.active {
   z-index: 1;
   opacity: 1;
-  transition: opacity .01s ease-in-out;
+  transition: opacity 0.01s ease-in-out;
 }
 
 .compare-modal--products {
@@ -139,17 +141,16 @@ export default {
   z-index: -1;
   opacity: 0;
   display: flex;
-  transition: bottom .01s ease-in-out, opacity .01s ease-in-out;
+  transition: bottom 0.01s ease-in-out, opacity 0.01s ease-in-out;
 }
 
 .compare-modal--products.active {
   bottom: 48px;
   opacity: 1;
   z-index: 1;
-  transition: bottom .125s ease-in-out, opacity .125s ease-in-out;
+  transition: bottom 0.125s ease-in-out, opacity 0.125s ease-in-out;
   display: flex;
 }
-
 
 .compare-modal--options button {
   width: 100%;
@@ -247,5 +248,8 @@ button.outlined {
 }
 .compare-modal--button button .sf-image--wrapper {
   margin-right: 7px;
+  position: absolute;
+  left: 16px;
+  top: 12px;
 }
 </style>
