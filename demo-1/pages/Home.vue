@@ -174,7 +174,10 @@ export default {
         image: addBasePath('/homepage/productA.webp'),
         price: { regular: '50.00 $' },
         rating: { max: 5, score: 4 },
-        isInWishlist: true
+        isInWishlist: true,
+        product_code: '57392347',
+        country: '',
+        category: 'Products'
       },
       {
         product_id: 2,
@@ -182,7 +185,9 @@ export default {
         image: addBasePath('/homepage/productB.webp'),
         price: { regular: '50.00 $' },
         rating: { max: 5, score: 4 },
-        isInWishlist: false
+        isInWishlist: false,
+        country: 'Poland',
+        category: 'Products'
       },
       {
         product_id: 3,
@@ -190,7 +195,10 @@ export default {
         image: addBasePath('homepage/productC.webp'),
         price: { regular: '50.00 $' },
         rating: { max: 5, score: 4 },
-        isInWishlist: false
+        isInWishlist: false,
+        product_code: '57392347',
+        country: 'Poland',
+        category: 'Products'
       },
       {
         product_id: 4,
@@ -198,7 +206,10 @@ export default {
         image: addBasePath('/homepage/productA.webp'),
         price: { regular: '50.00 $' },
         rating: { max: 5, score: 4 },
-        isInWishlist: false
+        isInWishlist: false,
+        product_code: '57392347',
+        country: 'Poland',
+        category: 'Products'
       },
       {
         product_id: 5,
@@ -206,7 +217,10 @@ export default {
         image: addBasePath('/homepage/productB.webp'),
         price: { regular: '50.00 $' },
         rating: { max: 5, score: 4 },
-        isInWishlist: false
+        isInWishlist: false,
+        product_code: '57392347',
+        country: 'Poland',
+        category: 'Products'
       },
       {
         product_id: 6,
@@ -214,7 +228,10 @@ export default {
         image: addBasePath('/homepage/productC.webp'),
         price: { regular: '50.00 $' },
         rating: { max: 5, score: 4 },
-        isInWishlist: false
+        isInWishlist: false,
+        product_code: '',
+        country: 'Poland',
+        category: 'Products'
       },
       {
         product_id: 7,
@@ -222,7 +239,10 @@ export default {
         image: addBasePath('/homepage/productA.webp'),
         price: { regular: '50.00 $' },
         rating: { max: 5, score: 4 },
-        isInWishlist: false
+        isInWishlist: false,
+        product_code: '57392347',
+        country: 'Poland',
+        category: 'Products'
       },
       {
         product_id: 8,
@@ -230,7 +250,10 @@ export default {
         image: addBasePath('/homepage/productB.webp'),
         price: { regular: '50.00 $' },
         rating: { max: 5, score: 4 },
-        isInWishlist: false
+        isInWishlist: false,
+        product_code: '57392347',
+        country: 'Poland',
+        category: 'Products'
       }
     ]);
     const heroes = [
