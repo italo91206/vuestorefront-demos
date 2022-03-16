@@ -56,7 +56,14 @@
       </section>
 
       <section class="compare-modal--options">
-        <button class="color-primary sf-button" :clas="{'disabled' : getCompareQuantity == 0}" :link="`/compare-product-details`">Compare</button>
+        <NuxtLink to="/compare-products-details"
+          :class="{'disabled' : getCompareQuantity < 2}"
+        >
+          <button class="color-primary sf-button">
+            Compare
+          </button>
+        </NuxtLink >
+
         <button class="outlined sf-button" @click="toggleCompareModal">Done</button>
       </section>
     </section>
@@ -103,9 +110,9 @@ export default {
 </script>
 
 <style scoped>
-.compare-modal--options button.disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
+.compare-modal--options a.disabled {
+  pointer-events: none;
+  opacity: 0.3;
 }
 
 .compare-modal--button button{
@@ -213,7 +220,6 @@ button.outlined {
 .compare-modal--button {
   position: fixed;
   bottom: 0;
-  z-index: 1;
   left: calc(50% - 247px / 2);
 }
 .compare-modal--quantity {

@@ -23,6 +23,11 @@ export function getRoutes(themeDir = __dirname) {
     component: path.resolve(themeDir, 'pages/Cart.vue')
   },
   {
+    name: 'compare products details',
+    path: '/compare-products-details',
+    component: path.resolve(themeDir, 'pages/Compare.vue')
+  },
+  {
     name: 'checkout',
     path: '/checkout',
     component: path.resolve(themeDir, 'pages/Checkout.vue'),
